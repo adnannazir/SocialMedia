@@ -1,0 +1,88 @@
+{% load static %}
+
+<header
+      x-data="{ mobilenavOpen: false }"
+      class="sticky top-0 z-50 items-center justify-between h-20 [&>*]:px-8 text-white bg-gray-800 md:flex"
+    >
+      <div class="flex items-center justify-between h-16">
+        <logo>
+          <a href="" class="flex items-center gap-1">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke-width="1.5"
+              stroke="currentColor"
+              class="w-6 h-6"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12z"
+              />
+            </svg>
+            <span>Awesome</span>
+          </a>
+        </logo>
+        <mobileicon 
+          x-on:click=" mobilenavOpen = !mobilenavOpen "
+          class="md:hidden">
+          <a class="flex items-center justify-center w-12 h-12 rounded-lg cursor-pointer hover:bg-gray-700">
+            <img x-show="!mobilenavOpen" class="w-6 h-6 select-none" src="https://img.icons8.com/ios-glyphs/ffffff/30/menu--v3.png" alt="menu--v3"/>
+            <img x-show="mobilenavOpen" x-cloak class="w-6 h-6 select-none" src="https://img.icons8.com/windows/32/ffffff/delete-sign.png" alt="delete-sign"/>
+          </a>
+        </mobileicon>
+      </div>
+      
+      <nav 
+        x-show="mobilenavOpen"
+        x-cloak
+        class="md:!block bg-gray-800 h-screen w-screen md:h-auto md:w-auto"
+        x-transition:enter="duration-300 ease-out"
+        x-transition:enter-start="opacity-0 -translate-y-5 scale-90"
+        x-transition:enter-end="opacity-100 -translate-y-0 scale-100"
+        >
+        <img x-show="mobilenavOpen" class="py-8" src={% static 'images/4.gif' %}>
+        <ul class="flex flex-col items-center justify-end px-8 justify-e navitems md:flex-row md:gap-0">
+          <li><a href="{% url "home" %}">Home</a></li>
+          <li><a href="{% url "post_create" %}">Create Post</a></li>
+          <li x-data="{ dropdownOpen: false }"
+            class="relative">
+            <a class="cursor-pointer select-none" @click="dropdownOpen = !dropdownOpen" @click.away="dropdownOpen=false"> 
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke-width="1.5"
+                stroke="currentColor"
+                class="w-6 h-6"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M17.982 18.725A7.488 7.488 0 0012 15.75a7.488 7.488 0 00-5.982 2.975m11.963 0a9 9 0 10-11.963 0m11.963 0A8.966 8.966 0 0112 21a8.966 8.966 0 01-5.982-2.275M15 9.75a3 3 0 11-6 0 3 3 0 016 0z"
+                />
+              </svg>
+              User
+              <img x-bind:class="dropdownOpen ? 'rotate-180 duration-300' : ''" width="16" height="16" src="https://img.icons8.com/officexs/16/sort-down.png"/>
+            </a>
+            <div x-show="dropdownOpen" x-cloak
+              class="absolute right-0 z-20 w-40 p-2 text-black bg-white rounded-lg shadow"
+              x-transition:enter="duration-300 ease-out"
+              x-transition:enter-start="opacity-0 -translate-y-5 scale-90"
+              x-transition:enter-end="opacity-100 -translate-y-0 scale-100"
+              >
+              <ul class="hover-list [&>li>a]:justify-end">
+                <li><a href="">My Profile</a></li>
+                <li><a href="">Log Out</a></li>
+              </ul>
+            </div>
+          </li>
+        </ul>
+      </nav>
+    </header>
+
+
+
+
+

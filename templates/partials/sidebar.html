@@ -1,0 +1,62 @@
+{% load static %}
+
+<aside 
+        x-show="mobileSidebarOpen" x-cloak
+        class="col-span-full md:col-span-1 mx-[5%] md:mr-[20%] order-1 md:order-2 md:!block"
+        x-transition:enter="duration-300 ease-out"
+        x-transition:enter-start="opacity-0 -translate-y-5 scale-90"
+        x-transition:enter-end="opacity-100 -translate-y-0 scale-100"
+      >
+        <section class="p-4 card">
+          <h2>Categories</h2>
+          <ul class="hover-list">
+            <li class="highlight"><a href="">
+              <img class="object-cover w-8 h-8 mr-2" src="https://img.icons8.com/office/40/landscape.png"/>
+              <span class="text-sm font-bold">Landscapes</span>
+            </a></li>
+            <li><a href="">
+              <img class="object-cover w-8 h-8 mr-2" src="https://img.icons8.com/office/40/portrait.png"/>
+              <span class="text-sm font-bold">People</span>
+            </a></li>
+            <li><a href="">
+              <img class="object-cover w-8 h-8 mr-2" src="https://img.icons8.com/office/40/dog.png"/>
+              <span class="text-sm font-bold">Animals</span>
+            </a></li>
+            <li><a href="">
+              <img class="object-cover w-8 h-8 mr-2" src="https://img.icons8.com/office/40/collage.png"/>
+              <span class="text-sm font-bold">Abstract</span>
+            </a></li>
+            <li><a href="">
+              <img class="object-cover w-8 h-8 mr-2" src="https://img.icons8.com/office/40/180-degrees.png"/>
+              <span class="text-sm font-bold">Black & White</span>
+            </a></li>
+          </ul>
+        </section>
+        
+        <section class="p-4 card">
+          <h2>Top Photos</h2>
+          <ul class="hover-list">
+            <li class="highlight"><a href="">
+              <img class="object-cover w-10 h-10 mr-3 rounded-full" src={% static 'images/avatar.jpg' %}/>😃
+              <span class="mr-1 text-sm font-bold">Homer</span>
+              <span class="text-sm font-light text-gray-500">5 likes</span>
+            </a></li>
+            <li class="highlight"><a href="">
+              <img class="object-cover w-10 h-10 mr-3 rounded-full" src={% static 'images/avatar.jpg' %}>😃
+              <span class="mr-1 text-sm font-bold">Homer</span>
+              <span class="text-sm font-light text-gray-500">5 likes</span>
+            </a></li>
+          </ul>
+        </section>
+        
+        <section class="p-4 card">
+          <h2>Top Captions</h2>
+          <ul class="hover-list">
+            <li class="highlight"><a href="">
+              <img class="object-cover w-8 h-8 mr-1 rounded-full" src={% static 'images/avatar.jpg' %}/>
+              <span class="mr-1 text-sm font-bold">Homer</span>
+              <span class="text-sm font-light text-gray-500">5 likes</span>
+            </a></li>
+          </ul>
+        </section>
+      </aside>

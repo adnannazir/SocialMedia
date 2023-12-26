@@ -1,0 +1,45 @@
+{% extends 'layouts/a.html' %}
+{% load static %}
+
+{% block content %}
+
+        <article class="card">
+          {% for post in posts %}  
+          
+        
+          <div class="flex items-center justify-between px-4 h-14">
+            <h3 class="text-lg font-bold w-[50%] truncate">{{ post.title }}</h3>
+            <div class="text-sm text-gray-500">flickr<a href="{{ post.url }}" class="hover:underline" target="_blank">@{{ post.artist }}</a></div>
+          </div>
+          <figure>
+            <a href=""><img class="w-full" src="{{ post.image }}"></a>
+          </figure>
+          
+          <div class="p-4 pb-2">
+            <a class="flex items-center gap-1 mb-4" href="">
+              😃<span class="font-bold hover:underline">Name</span>
+            </a>
+            <p class="px-4 mb-10 text-5xl font1">{{ post.body }}</p>
+            <div class="flex items-center gap-2 mb-5 text-sm">
+              <a class="px-3 py-1 bg-gray-200 rounded-full hover:text-white hover:bg-gray-500" href="">Animals</a>
+              <a class="px-3 py-1 bg-gray-200 rounded-full hover:text-white hover:bg-gray-500" href="">Cute</a>
+            </div>
+
+            <div class="flex items-center justify-between px-2 text-sm">
+              <a class="font-bold hover:underline" href="">Comments:<span class="ml-2 font-light text-gray-500">3</span></a>
+              <div class="flex items-center gap-4 [&>a:hover]:underline">
+                <div class="flex items-center gap-1">💛1</div>
+                <a href="">Like</a>
+                <a href="">Edit</a>
+                <a href="">Delete</a>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        {% endfor %}
+
+{% endblock content %}
+
+
+
